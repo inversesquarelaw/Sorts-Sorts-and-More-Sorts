@@ -29,14 +29,11 @@ public class Test
         }
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         List<Integer> list = new ArrayList<>();
-        randomList(list, 1000);
-        InsertionSort.sort(list, ComparatorUtils.integerComparator());
-
-        isSorted(list);
+        randomList(list, 100);
+        CombSort.sort(list, ComparatorUtils.integerComparator());
         System.out.println(Arrays.toString(list.toArray()));
-
     }
 }

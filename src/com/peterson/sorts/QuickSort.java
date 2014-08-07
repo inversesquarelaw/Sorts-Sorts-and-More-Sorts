@@ -38,11 +38,13 @@ public class QuickSort
         {
             while (comp.compare(list.get(++i), temp) < 0)
             {
-                ; //intentional empty loop
+                if (i == hi)
+                    break;
             }
-            while (comp.compare(temp, list.get(--j)) > 1)
+            while (comp.compare(temp, list.get(--j)) > 0)
             {
-                ; //intentional empty loop
+                if (j == lo)
+                    break;
             }
             if (i >= j)
                 break;
