@@ -41,7 +41,7 @@ public class QuickSort
                 if (i == hi)
                     break;
             }
-            while (comp.compare(temp, list.get(--j)) > 0)
+            while (comp.compare(temp, list.get(--j)) < 0)
             {
                 if (j == lo)
                     break;
@@ -52,6 +52,7 @@ public class QuickSort
         }
 
         Collections.swap(list, lo, j);
+
         return j;
     }
 
