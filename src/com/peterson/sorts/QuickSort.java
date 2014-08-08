@@ -2,6 +2,7 @@ package com.peterson.sorts;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,9 +13,17 @@ public class QuickSort
 {
     public static <T> void sort(List<T> list, Comparator<T> comp)
     {
-        Collections.shuffle(list);
-        _sort(list, comp, 0, list.size() - 1);
-
+        if (list instanceof LinkedList)
+        {
+            list = SortUtil.toArrayList(list);
+            sort(list, comp);
+            list = SortUtil.toLinkedList(list);
+        }
+        else
+        {
+            Collections.shuffle(list);
+            _sort(list, comp, 0, list.size() - 1);
+        }
     }
 
     private static <T> void _sort(List<T> list, Comparator<T> comp, int lo, int hi)

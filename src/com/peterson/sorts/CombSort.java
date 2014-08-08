@@ -2,6 +2,7 @@ package com.peterson.sorts;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,34 +13,43 @@ public class CombSort
 {
     public static <T> void sort(List<T> list, Comparator<T> comp)
     {
-        int gap = list.size();
-        final double shrink = 1.3;
-
-        boolean swapped = true;
-
-        while (true)
+        if (list instanceof LinkedList)
         {
-            if (gap == 1 && !swapped)
-                break;
+            list = SortUtil.toArrayList(list);
+            sort(list, comp);
+            list = SortUtil.toLinkedList(list);
+        }
+        else
+        {
+            int gap = list.size();
+            final double shrink = 1.3;
 
-            double nGap = (double) gap / shrink;
+            boolean swapped = true;
 
-            gap = (int) nGap;
-
-            if (gap < 1)
-                gap = 1;
-
-            int i = 0;
-            swapped = false;
-            while (i + gap < list.size())
+            while (true)
             {
-                if (comp.compare(list.get(i), list.get(i + gap)) > 0)
-                {
-                    Collections.swap(list, i, i + gap);
-                    swapped = true;
-                }
+                if (gap == 1 && !swapped)
+                    break;
 
-                i++;
+                double nGap = (double) gap / shrink;
+
+                gap = (int) nGap;
+
+                if (gap < 1)
+                    gap = 1;
+
+                int i = 0;
+                swapped = false;
+                while (i + gap < list.size())
+                {
+                    if (comp.compare(list.get(i), list.get(i + gap)) > 0)
+                    {
+                        Collections.swap(list, i, i + gap);
+                        swapped = true;
+                    }
+
+                    i++;
+                }
             }
         }
     }
