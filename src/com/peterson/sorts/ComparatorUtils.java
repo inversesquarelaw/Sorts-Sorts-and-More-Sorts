@@ -3,6 +3,8 @@ package com.peterson.sorts;
 import java.util.Comparator;
 
 /**
+ * Utility methods that
+ * return comparators.
  * @author Peterson, Ryan
  *         Created 8/7/2014
  */

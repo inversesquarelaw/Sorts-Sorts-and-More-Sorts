@@ -4,6 +4,9 @@ import java.time.Clock;
 import java.util.*;
 
 /**
+ * Just a main method to
+ * test the sorts.
+ *
  * @author Peterson, Ryan
  *         Created 8/7/2014
  */
