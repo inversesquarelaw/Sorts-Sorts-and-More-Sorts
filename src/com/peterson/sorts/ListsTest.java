@@ -37,6 +37,8 @@ public class ListsTest
                 {
                     QuickSort.sort(listTwo, ComparatorUtils.integerComparator());
                     System.out.println("Two done");
+                    if (listTwo instanceof ArrayList)
+                        throw new RuntimeException("Shit");
                 }
             };
 

@@ -6,11 +6,26 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Sorts a list using Comb Sort.
+ * Comb sort is an improvement of Bubble Sort.
+ * It is unclear that this is a O(n^2) sort,
+ * so it can be assumed that it is.
+ *
  * @author Peterson, Ryan
  *         Created 8/7/2014
  */
 public class CombSort
 {
+    /**
+     * Sorts the List using Comb Sort.
+     * Just like other sorts in this package, an extra
+     * 2*O(n) is used to switch between LinkedList and Array list
+     * to maintain efficiency.
+     *
+     * @param list the list to be sorted
+     * @param comp comparison rule to sort the list by
+     * @param <T>
+     */
     public static <T> void sort(List<T> list, Comparator<T> comp)
     {
         if (list instanceof LinkedList)

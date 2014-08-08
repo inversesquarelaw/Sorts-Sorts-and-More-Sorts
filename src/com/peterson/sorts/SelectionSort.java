@@ -12,6 +12,7 @@ import java.util.List;
  * is not close to being sorted, but can
  * run in linear time with a list that is almost sorted.
  * Do not use with a large data set if the list isn't near sorted!
+ *
  * @author Peterson, Ryan
  *         Created 8/7/2014
  */
@@ -20,7 +21,10 @@ public class SelectionSort
     /**
      * Runs the Sort.
      * Takes in a List and sorts it via selection sort,
-     * using the Comparator for ordering
+     * using the Comparator for ordering.
+     * This will guarantee that the code will run in the
+     * expected O(n^2) average case, but will add 2*O(n)
+     * if a LinkedList is used
      *
      * @param list the list to sort
      * @param comp the way to compare the elements
